@@ -1,4 +1,4 @@
-  program Project3;
+ program Project3;
 
 {$APPTYPE CONSOLE}
 
@@ -12,25 +12,28 @@ uses
   Определить, содержит ли последовательность хотя бы 2 равных соседних числа.}
 
   var
-  a,b,c,n: real;
+  input, preinput: real;
+  flag: boolean;
+  
   begin
      setconsolecp(1251);
      setconsoleoutputcp(1251);
      writeln('Введите последовательность чисел. Ноль является концом последовательности: ');
-     readln(a);
-     n:=0;
-     c:=0;
-
+	 input := 0.0;
+	 preinput := 0.0;
+	 flag := false;
+	 
      repeat
-      readln(b);
-      n:=n+1;
-      if b=a then c:=1;
-      a:=b;
-     until(b=0)and(n>1);
+      readln(input);
+      if (input = preinput) AND (input <> 0)
+		flag := true;
+     until input = 0;
 
-if c=1 then write('Есть пара соседних одинаковых чисел.')
-else write('Нет пары соседних одинаковых чисел.');
-readln
+if flag then 
+	write('…сть пара соседних одинаковых чисел.')
+else 
+	write('Ќет пары соседних одинаковых чисел.');
+readln;
 end.
 
 
