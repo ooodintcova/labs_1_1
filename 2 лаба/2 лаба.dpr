@@ -1,0 +1,49 @@
+{$apptype CONSOLE}
+
+uses
+  system.sysutils,
+  windows;
+
+{Пусть вводится последовательность из целых чисел,
+  оканчивающаяся нулем. Найдите наименьшее из всех положительных
+  чисел последовательности. №49Б}
+
+
+
+var
+  a, min, min2: integer;
+  flag: boolean;
+
+begin
+  setconsolecp(1251);
+  setconsoleoutputcp(1251);
+  writeln('Введите последовательность из целых чисел, ввод числа 0 означает конец последовательности: ');
+  a := 0;
+  min := 0;
+  min2 := 0;
+  flag := false;
+
+
+  if flag = false then begin
+    repeat
+      readln(a);
+      if a > 0 then begin
+        flag := true;
+        min := a;
+      end;
+    until (flag = true) or (a = 0);
+  end;
+  if flag = true then
+  begin
+    repeat
+      readln(a);
+      if (a > 0) and (a < min) then
+        min2 := a;
+    until a = 0;
+  end;
+  if (min > 0) and (min2 = 0) then
+    min2 := min;
+  if flag = false then writeln('Во введенной последовательности нет минимума, удовлетворяющего условию задачи.')
+  else writeln('Минимум = ', min2, '.');
+  readln;
+end.
