@@ -11,7 +11,7 @@ uses
 
 
 var
-  a, min: integer;
+  a, min, min2: integer;
   flag: boolean;
 
 begin
@@ -20,6 +20,7 @@ begin
   writeln('¬ведите последовательность из целых чисел, ввод числа 0 означает конец последовательности: ');
   a := 0;
   min := 0;
+  min2 := 0;
   flag := false;
 
 
@@ -37,11 +38,12 @@ begin
     repeat
       readln(a);
       if (a > 0) and (a < min) then
-        min := a;
+        min2 := a;
     until a = 0;
   end;
- 
+  if (min > 0) and (min2 = 0) then                   //ћинимум последовательности - первое положительное число
+    min2 := min;
   if flag = false then writeln('¬о введенной последовательности нет минимума, удовлетвор€ющего условию задачи.')
-  else writeln('ћинимум = ', min, '.');
+  else writeln('ћинимум = ', min2, '.');
   readln;
 end.
