@@ -25,14 +25,14 @@ begin
 
   repeat
     readln(a);
-    if (a <> b) and (a <> 0) then
+    if (a <> b) AND (a <> 0) then
       b:= a
     else
-        if (b = a) and (a <> 0) then
+        if (b = a) then
       flag:= true;
   until a = 0;
 
-  if flag = true then
+  if flag then
     write('≈сть пара соседних одинаковых чисел.')
   else
     write('Ќет пары соседних одинаковых чисел.');
